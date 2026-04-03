@@ -125,7 +125,7 @@
         <button class="submit-btn" id="submitBtn" onclick="submitData()">
           <span>📡</span> Share My Water Data
         </button>
-        <span class="submit-note">Saves your TDS + pincode anonymously to help build India's free water quality map</span>
+        <span class="submit-note">By submitting, you agree to our <button onclick="openTnC()" class="tnc-inline-link">Terms &amp; Conditions</button>. Only TDS + pincode are collected — stored anonymously.</span>
         <div class="submit-success" id="submitSuccess"></div>
         <div id="submitError" style="display:none;width:100%;margin-top:8px;padding:0.6rem 1rem;background:rgba(255,77,77,0.1);border:1px solid rgba(255,77,77,0.3);border-radius:10px;font-size:0.84rem;color:#ff7f7f;"></div>
       </div>
@@ -268,6 +268,7 @@
     <a href="#guide">TDS Guide</a>
     <a href="#how">How it Works</a>
     <a href="#why">Why it Matters</a>
+    <button onclick="openTnC()" class="tnc-footer-btn">📄 T&amp;C &amp; Privacy</button>
   </div>
   <hr class="footer-divider">
   <p class="footer-bottom">© 2025 AquaCheck · Data sources: WHO Guidelines for Drinking Water Quality · Bureau of Indian Standards IS 10500 · US EPA Secondary Drinking Water Regulations · All filter recommendations are for informational purposes only. Get your water professionally tested for specific contaminants like arsenic and fluoride.</p>
@@ -281,6 +282,67 @@
       <button class="panel-modal-close" onclick="closePanelModal()">✕</button>
     </div>
     <div class="panel-body" id="panelModalBody"></div>
+  </div>
+</div>
+
+<!-- T&C MODAL -->
+<div class="panel-modal-overlay" id="tncModalOverlay">
+  <div class="panel-modal tnc-modal">
+    <div class="panel-header tnc-header">
+      <div class="panel-title tnc-title">Terms &amp; Conditions / Privacy Policy</div>
+      <button class="panel-modal-close" onclick="closeTnC()">✕</button>
+    </div>
+    <div class="tnc-body">
+      <p class="tnc-meta">Effective Date: April 2026 &nbsp;|&nbsp; Last Updated: April 2026 &nbsp;|&nbsp; Governing Law: Information Technology Act, 2000 (India); Digital Personal Data Protection Act, 2023 (India)</p>
+
+      <p class="tnc-intro">PLEASE READ THESE TERMS AND CONDITIONS ("AGREEMENT") CAREFULLY BEFORE USING THIS WEBSITE. BY ACCESSING OR USING AQUACHECK ("PLATFORM", "SERVICE", "WE", "US", "OUR"), YOU ("USER", "YOU") ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS. IF YOU DO NOT AGREE, DISCONTINUE USE OF THIS PLATFORM IMMEDIATELY.</p>
+
+      <div class="tnc-block">
+        <span class="tnc-num">1.</span><span class="tnc-h">DEFINITIONS AND INTERPRETATION.</span> In this Agreement, "Platform" refers to the AquaCheck website and all associated services; "Data" refers to any information submitted voluntarily by the User including but not limited to TDS readings, area pincodes, and submission timestamps; "Aggregated Data" means anonymised, non-personally identifiable statistical compilations derived from User-submitted Data; "Third Parties" means companies, research institutions, non-governmental organisations, governmental bodies, or commercial entities that may receive or purchase Aggregated Data from AquaCheck; "Processing" has the meaning assigned under the DPDP Act, 2023.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">2.</span><span class="tnc-h">DATA COLLECTION.</span> Upon voluntary submission via the "Share My Water Data" function, AquaCheck collects the following data points: (a) TDS (Total Dissolved Solids) value as manually entered by the User; (b) six-digit area pincode as entered by the User; (c) system-generated submission timestamp (UTC); (d) computed water quality zone derived algorithmically from the submitted TDS value. AquaCheck expressly does not collect, store, or process the User's name, email address, telephone number, IP address, device identifiers, browser fingerprints, cookies, geolocation coordinates, or any other personally identifiable information ("PII"). Mere browsing of the Platform without submission constitutes no data collection.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">3.</span><span class="tnc-h">PURPOSE AND USE OF DATA.</span> Collected Data shall be used for the following purposes: (a) construction and maintenance of a crowdsourced, publicly accessible water quality index for Indian geographic regions; (b) internal analytical processing to improve algorithmic recommendations provided on the Platform; (c) generation of Aggregated Data reports, heatmaps, statistical summaries, and trend analyses; (d) commercial licensing, transfer, or sale of Aggregated Data to water treatment companies, filter manufacturers, municipal bodies, academic researchers, NGOs, and government agencies; (e) publication of anonymised research findings in any medium. AquaCheck reserves the right to use Aggregated Data for any lawful commercial purpose without further notice to Users. Individual submissions are never disclosed, transferred, or sold in a form that identifies or is capable of identifying any individual User.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">4.</span><span class="tnc-h">CONSENT AND LEGAL BASIS.</span> By clicking the "Share My Water Data" button, the User provides free, specific, informed, and unambiguous consent to the collection, storage, processing, and commercial use of their submitted Data as described herein, consistent with Section 6 of the Digital Personal Data Protection Act, 2023. Users who do not wish to provide consent may use all other features of the Platform without submitting Data. Withdrawal of consent post-submission is not operationally possible as submitted Data is immediately anonymised and cannot be linked back to any individual.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">5.</span><span class="tnc-h">DATA STORAGE AND RETENTION.</span> Submitted Data is stored on third-party cloud infrastructure operated by Google LLC (Google Sheets / Google Cloud Platform) subject to Google's own terms of service and privacy policy. AquaCheck retains Data indefinitely for the purpose of long-term water quality trend analysis. As no PII is collected, Data Subject rights under DPDP Act 2023 regarding correction, erasure, and grievance redressal cannot be exercised in relation to submitted Data due to the irreversible anonymisation applied at the point of collection.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">6.</span><span class="tnc-h">DISCLAIMER OF WARRANTIES.</span> All filter recommendations, water quality assessments, health impact analyses, and related content provided on this Platform are for general informational purposes only and are based on publicly available WHO, BIS IS:10500, and US EPA secondary drinking water standards. AquaCheck makes no representations or warranties, express or implied, as to the accuracy, completeness, fitness for purpose, or applicability of any recommendation to any User's specific circumstances. Nothing on this Platform constitutes professional water quality testing, medical advice, or engineering consultation. Users are strongly advised to obtain certified NABL-accredited laboratory analysis for actionable decisions regarding water safety, filtration, or health.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">7.</span><span class="tnc-h">LIMITATION OF LIABILITY.</span> To the fullest extent permitted by applicable law, AquaCheck, its operators, affiliates, contributors, and data partners shall not be liable for any direct, indirect, incidental, consequential, special, or exemplary damages arising from: (a) use of or reliance on any content, recommendation, or analysis on this Platform; (b) any inaccuracy in water quality data or filter recommendations; (c) third-party use of Aggregated Data; or (d) any interruption, suspension, or termination of the Platform. Total aggregate liability shall not exceed INR 0 (zero) as the Platform is provided free of charge.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">8.</span><span class="tnc-h">INTELLECTUAL PROPERTY.</span> All content, design elements, algorithms, data compilations, Aggregated Data products, and analytical outputs generated by AquaCheck are the exclusive intellectual property of AquaCheck and its operators. Unauthorised reproduction, redistribution, scraping, or commercial use of any Platform content is strictly prohibited and may constitute an infringement under the Copyright Act, 1957 (India).
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">9.</span><span class="tnc-h">MODIFICATIONS TO TERMS.</span> AquaCheck reserves the right to amend, modify, or replace these Terms at any time without prior notice. The "Last Updated" date shall be revised upon any material change. Continued use of the Platform following any modification constitutes acceptance of the revised Terms. Users are encouraged to review this Agreement periodically.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">10.</span><span class="tnc-h">GOVERNING LAW AND JURISDICTION.</span> This Agreement shall be governed by and construed in accordance with the laws of India. Any dispute arising out of or in connection with this Agreement shall be subject to the exclusive jurisdiction of the competent courts located in Rajasthan, India.
+      </div>
+
+      <div class="tnc-block">
+        <span class="tnc-num">11.</span><span class="tnc-h">CONTACT AND GRIEVANCE.</span> For queries, concerns, or grievance redressal related to this Agreement or data practices, Users may contact the designated Grievance Officer at: <a href="mailto:wateraquacheck@gmail.com" class="tnc-mail">wateraquacheck@gmail.com</a>. Response time may vary. AquaCheck endeavours to address all genuine grievances within 30 days of receipt.
+      </div>
+
+      <p class="tnc-footer-note">By using this Platform or submitting any data, you confirm that you are at least 18 years of age, have read and understood this Agreement in its entirety, and consent to its terms without reservation.</p>
+    </div>
   </div>
 </div>
 
