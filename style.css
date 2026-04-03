@@ -715,14 +715,238 @@
   }
   .fade-in { animation: fadeUp 0.6s ease both; }
 
-  /* ── RESPONSIVE ── */
+  /* ══════════════════════════════════════════
+     MOBILE — full responsive overrides
+     ══════════════════════════════════════════ */
+
+  /* ── Tablet (≤ 768px) ── */
   @media(max-width:768px){
+
+    /* NAV */
+    nav { padding: 0.85rem 1.25rem; }
     nav ul { display: none; }
-    .hero h1 { font-size: 2rem; }
-    .hero-stats { gap: 1.5rem; }
-    .metrics-grid { grid-template-columns: 1fr 1fr; }
-    .res-inner { padding: 1.25rem; }
-    .checker-inputs { padding: 1.25rem; }
-    .submit-row { padding: 1.25rem; }
+    .logo { font-size: 1.15rem; }
+
+    /* HERO */
+    .hero { padding: 5.5rem 1.25rem 3rem; min-height: auto; }
+    .hero h1 { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+    .hero-sub { font-size: 0.97rem; margin-bottom: 1.75rem; }
+    .hero-stats { gap: 1.5rem; margin-top: 2.5rem; }
+    .hstat-n { font-size: 1.5rem; }
+    .btn-primary, .btn-outline { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
+
+    /* SECTIONS */
+    section { padding: 3.5rem 1.25rem; }
+
+    /* HOW IT WORKS */
+    .steps { grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .step { padding: 1.25rem; }
+
+    /* CHECKER */
+    .checker-wrap { border-radius: 18px; margin-top: 1.75rem; }
+    .checker-top { padding: 1.25rem 1.25rem 1rem; }
+    .checker-top h2 { font-size: 1.15rem; }
+    .checker-inputs { padding: 1.25rem; gap: 1.1rem; }
     .tds-scale-section { padding: 1rem 1.25rem; }
+    .res-inner { padding: 1.25rem; }
+    .submit-row { padding: 1.1rem 1.25rem; gap: 0.75rem; }
+    .submit-btn { width: 100%; justify-content: center; }
+
+    /* METRICS */
+    .metrics-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    /* ACTION BUTTONS — 2 col on tablet */
+    .action-btns-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .abn-icon { font-size: 1.2rem; }
+    .abn-title { font-size: 0.82rem; }
+    .abn-sub { font-size: 0.68rem; }
+
+    /* MODAL */
+    .panel-modal-overlay { padding: 0; align-items: flex-end; }
+    .panel-modal {
+      border-radius: 20px 20px 0 0;
+      max-height: 90vh;
+      overflow-y: auto;
+      margin: 0;
+      width: 100%;
+    }
+    .panel-modal .panel-body { padding: 1.1rem; }
+    .panel-modal .panel-header { padding: 1rem 1.1rem; }
+    .panel-modal .panel-title { font-size: 0.95rem; }
+
+    /* GUIDE TABLE — horizontal scroll */
+    .guide-table-wrap { border-radius: 12px; }
+    .guide-table { font-size: 0.78rem; }
+    .guide-table thead th { padding: 0.7rem 0.85rem; font-size: 0.65rem; }
+    .guide-table tbody td { padding: 0.75rem 0.85rem; }
+
+    /* WHY GRID */
+    .why-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+    .why-card { padding: 1.25rem; }
+
+    /* FOOTER */
+    footer { padding: 2.5rem 1.25rem; }
+    .footer-links { gap: 1.25rem; }
+
+    /* HEAVY METALS */
+    .hm-truth-grid { grid-template-columns: 1fr; }
+    .hm-metal-detail { display: none; }
+    .hm-metal-row { padding: 0.6rem 0.85rem; }
+
+    /* FILTER PANEL */
+    .stage-compare-wrap { border-radius: 10px; }
+    .stage-compare-table { font-size: 0.75rem; }
+    .stage-compare-table thead th { padding: 0.55rem 0.7rem; font-size: 0.62rem; }
+    .stage-compare-table tbody td { padding: 0.65rem 0.7rem; }
+
+    /* RO SPLIT */
+    .ro-split { grid-template-columns: 1fr; }
+
+    /* HEALTH RANGE GRID */
+    .health-range-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── Mobile (≤ 480px) ── */
+  @media(max-width:480px){
+
+    /* NAV */
+    nav { padding: 0.75rem 1rem; }
+    .nav-cta { padding: 0.4rem 0.9rem; font-size: 0.8rem; }
+    .logo { font-size: 1.05rem; }
+
+    /* HERO */
+    .hero { padding: 5rem 1rem 2.5rem; }
+    .hero h1 { font-size: clamp(1.65rem, 8vw, 2rem); line-height: 1.15; }
+    .hero-sub { font-size: 0.9rem; }
+    .hero-eyebrow { font-size: 0.7rem; padding: 0.35rem 0.85rem; }
+    .hero-cta-row { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+    .btn-primary, .btn-outline { text-align: center; justify-content: center; width: 100%; }
+    .hero-stats { gap: 1rem; }
+    .hstat-n { font-size: 1.35rem; }
+    .hstat-l { font-size: 0.72rem; }
+
+    /* SECTIONS */
+    section { padding: 2.75rem 1rem; }
+    .sec-title { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+    .sec-sub { font-size: 0.88rem; }
+
+    /* HOW IT WORKS */
+    .steps { grid-template-columns: 1fr; gap: 0.85rem; margin-top: 1.5rem; }
+    .step { padding: 1.1rem; }
+    .step h3 { font-size: 0.95rem; }
+    .step p { font-size: 0.84rem; }
+
+    /* CHECKER */
+    .checker-wrap { border-radius: 14px; margin-top: 1.25rem; }
+    .checker-top { padding: 1rem; }
+    .checker-top h2 { font-size: 1.05rem; }
+    .checker-top p { font-size: 0.82rem; }
+    .checker-inputs { padding: 1rem; gap: 1rem; grid-template-columns: 1fr; }
+    .tds-number { width: 80px; font-size: 1.3rem; }
+    .tds-scale-section { padding: 0.85rem 1rem; }
+    .scale-labels { font-size: 9px; }
+    .res-inner { padding: 1rem; }
+    .submit-row { padding: 1rem; flex-direction: column; gap: 0.6rem; }
+    .submit-btn { font-size: 0.9rem; padding: 0.7rem 1.25rem; }
+    .submit-note { font-size: 0.72rem; text-align: center; }
+
+    /* METRICS */
+    .metrics-grid { grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 1.25rem; }
+    .metric-card { padding: 0.75rem; }
+    .metric-val { font-size: 0.95rem; }
+    .metric-lbl { font-size: 0.65rem; }
+
+    /* ACTION BUTTONS — full width stack */
+    .action-btns-row { grid-template-columns: 1fr; gap: 7px; margin: 1.1rem 0 0.4rem; }
+    .action-btn { padding: 0.75rem 1rem; border-radius: 12px; }
+    .abn-icon { font-size: 1.1rem; }
+    .abn-title { font-size: 0.84rem; }
+    .abn-sub { font-size: 0.7rem; }
+
+    /* RESULTS */
+    .quality-pill { font-size: 0.82rem; padding: 0.4rem 0.9rem; }
+    .res-desc { font-size: 0.84rem; }
+    .alert-banner { font-size: 0.82rem; padding: 0.8rem 0.9rem; }
+    .standards-row { gap: 5px; }
+    .std-chip { font-size: 0.67rem; padding: 2px 8px; }
+
+    /* STAGES */
+    .stage-item { padding: 0.75rem; gap: 10px; }
+    .stage-name { font-size: 0.85rem; }
+    .stage-meta { font-size: 0.73rem; }
+
+    /* MODAL — full-screen bottom sheet */
+    .panel-modal-overlay { padding: 0; }
+    .panel-modal {
+      border-radius: 18px 18px 0 0;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+    .panel-modal .panel-header { padding: 0.9rem 1rem; }
+    .panel-modal .panel-title { font-size: 0.88rem; }
+    .panel-modal .panel-body { padding: 1rem; }
+    .panel-modal-close { width: 28px; height: 28px; }
+
+    /* GUIDE TABLE */
+    .guide-table { font-size: 0.72rem; }
+    .guide-table thead th { padding: 0.6rem 0.7rem; font-size: 0.6rem; }
+    .guide-table tbody td { padding: 0.65rem 0.7rem; }
+    .tds-range-pill { font-size: 0.7rem; padding: 2px 7px; }
+
+    /* WHY SECTION */
+    .why-grid { gap: 0.85rem; margin-top: 1.5rem; }
+    .why-card { padding: 1.1rem; }
+    .why-icon { width: 38px; height: 38px; font-size: 1rem; margin-bottom: 0.75rem; }
+    .why-card h3 { font-size: 0.92rem; }
+    .why-card p { font-size: 0.82rem; }
+
+    /* FOOTER */
+    footer { padding: 2rem 1rem; }
+    .footer-logo { font-size: 1.15rem; }
+    footer p { font-size: 0.78rem; }
+    .footer-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.78rem; }
+    .footer-bottom { font-size: 0.7rem; }
+
+    /* HEAVY METALS */
+    .hm-header { padding: 0.9rem 1rem; gap: 10px; }
+    .hm-icon-wrap { width: 36px; height: 36px; }
+    .hm-title { font-size: 0.88rem; }
+    .hm-subtitle { font-size: 0.72rem; }
+    .hm-body { padding: 0.9rem 1rem; }
+    .hm-truth-grid { gap: 6px; }
+    .hm-truth-card { padding: 0.75rem; }
+    .hm-btn { padding: 0.65rem 0.85rem; font-size: 0.78rem; min-width: 0; }
+    .hm-metal-name { font-size: 0.78rem; min-width: 55px; }
+    .hm-metal-detail { display: none; }
+    .hm-metal-risk { font-size: 0.64rem; }
+    .hm-lab-banner { font-size: 0.76rem; padding: 0.75rem 0.9rem; }
+
+    /* FILTER PANEL TABLE */
+    .stage-compare-table { font-size: 0.7rem; }
+    .stage-compare-table thead th { padding: 0.5rem 0.6rem; font-size: 0.58rem; }
+    .stage-compare-table tbody td { padding: 0.6rem 0.6rem; }
+    .life-badge { font-size: 0.6rem; padding: 1px 6px; }
+
+    /* FILTER ROW */
+    .filter-row { padding: 0.85rem; }
+    .fr-name { font-size: 0.84rem; }
+    .fr-specs { font-size: 0.72rem; gap: 8px; }
+    .fr-price { font-size: 0.88rem; }
+    .shop-link { font-size: 0.65rem; padding: 2px 7px; }
+
+    /* RO CARDS */
+    .ro-card { padding: 0.9rem; }
+    .ro-card-title { font-size: 0.88rem; }
+    .ro-card-body { font-size: 0.78rem; }
+
+    /* HEALTH RANGE */
+    .health-range-grid { grid-template-columns: 1fr; gap: 6px; }
+    .health-card { padding: 0.75rem; }
+    .health-highlight { font-size: 0.82rem; padding: 0.85rem; }
+
+    /* SLIDER — bigger thumb for touch */
+    input[type=range]::-webkit-slider-thumb {
+      width: 26px; height: 26px;
+    }
   }
