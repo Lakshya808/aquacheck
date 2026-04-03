@@ -827,14 +827,33 @@ async function submitData(){
   const success = document.getElementById('submitSuccess');
   const errBox  = document.getElementById('submitError');
 
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Looking up location…';
+  if(errBox) errBox.style.display = 'none';
+
+  // ── STEP 1: Fetch city & state from pincode ──
+  let city  = '';
+  let state = '';
+  try {
+    const res  = await fetch(`https://api.postalpincode.in/pincode/${pin}`);
+    const data = await res.json();
+    if(data[0].Status === 'Success' && data[0].PostOffice.length > 0){
+      const po = data[0].PostOffice[0];
+      city  = po.District || po.Name || '';
+      state = po.State    || '';
+    }
+  } catch(e) {
+    // Silently fail — city/state just stay empty if API is down
+  }
+
   // Build the data object
   const entry = {
     timestamp : new Date().toISOString(),
     pincode   : pin,
     tds       : tds,
     zone      : getZone(tds).label,
-    city      : '',   // auto-filled by pincode lookup if you add that later
-    state     : ''
+    city      : city,
+    state     : state
   };
 
   // Always save locally as backup
@@ -846,30 +865,26 @@ async function submitData(){
 
   // If no URL set yet — just show success from localStorage save
   if(!GOOGLE_SHEET_URL || GOOGLE_SHEET_URL === 'YOUR_APPS_SCRIPT_URL_HERE'){
-    btn.disabled = true;
     if(errBox) errBox.style.display = 'none';
     success.classList.add('show');
     success.innerHTML = '✅ Saved locally — add your Google Sheet URL to sync online';
-    setTimeout(()=>{ btn.disabled=false; success.classList.remove('show'); }, 5000);
+    setTimeout(()=>{ btn.disabled=false; btn.innerHTML='📡 Share My Water Data'; success.classList.remove('show'); }, 5000);
     return;
   }
 
-  // Send to Google Sheets
-  btn.disabled = true;
+  // ── STEP 2: Send to Google Sheets ──
   btn.innerHTML = '⏳ Sending…';
-  if(errBox) errBox.style.display = 'none';
 
   try {
     await fetch(GOOGLE_SHEET_URL, {
       method  : 'POST',
-      mode    : 'no-cors',     // Google Apps Script requires no-cors
+      mode    : 'no-cors',
       headers : { 'Content-Type': 'application/json' },
       body    : JSON.stringify(entry)
     });
 
-    // no-cors means we can't read the response, but if no error was thrown it worked
     success.classList.add('show');
-    success.innerHTML = '✅ Data saved to Google Sheets!';
+    success.innerHTML = `✅ Saved! ${city ? city + ', ' + state : 'Location added'} · TDS ${tds} ppm`;
     setTimeout(()=>{ btn.disabled=false; btn.innerHTML='📡 Share My Water Data'; success.classList.remove('show'); }, 5000);
 
   } catch(err) {
