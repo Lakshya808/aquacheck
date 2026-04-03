@@ -773,10 +773,46 @@ function toggleHmMore(){
   btn.textContent=isHidden?'Hide Extra Metals':'Show All 7 Heavy Metals';
 }
 
-
+// ──────────────────────────────────────────────
+//  STEP 1 ▸ Paste your Google Apps Script URL below
+//  after you deploy it (see setup guide in comments)
+// ──────────────────────────────────────────────
 const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbymxdekgwcwXp4Xuw5FiThmg_0AkYEeg7HP7ftkS6pXagYSsFqfZKZ8L4tSYpwzNj4/exec';
-
-
+//
+// HOW TO GET THIS URL — full steps:
+//
+// 1. Go to https://sheets.google.com → create a new sheet
+//    Name the columns in row 1:
+//    Timestamp | Pincode | TDS | Zone | City | State
+//
+// 2. In the sheet click Extensions → Apps Script
+//
+// 3. Delete everything and paste this code:
+//
+//    function doPost(e) {
+//      const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+//      const data  = JSON.parse(e.postData.contents);
+//      sheet.appendRow([
+//        data.timestamp,
+//        data.pincode,
+//        data.tds,
+//        data.zone,
+//        data.city  || '',
+//        data.state || ''
+//      ]);
+//      return ContentService
+//        .createTextOutput(JSON.stringify({ result: 'success' }))
+//        .setMimeType(ContentService.MimeType.JSON);
+//    }
+//
+// 4. Click Deploy → New deployment
+//    → Type: Web App
+//    → Execute as: Me
+//    → Who has access: Anyone
+//    → Click Deploy → Copy the URL
+//
+// 5. Paste that URL above replacing 'YOUR_APPS_SCRIPT_URL_HERE'
+// ──────────────────────────────────────────────
 
 async function submitData(){
   const tds = parseInt(document.getElementById('tdsNum').value)||0;
@@ -886,6 +922,28 @@ document.addEventListener('DOMContentLoaded', () => {
 function togglePanel(id, zoneId, tds) {
   openPanelModal(id);
 }
+
+// ── T&C MODAL ──
+function openTnC() {
+  const overlay = document.getElementById('tncModalOverlay');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTnC() {
+  const overlay = document.getElementById('tncModalOverlay');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tncOverlay = document.getElementById('tncModalOverlay');
+  if (tncOverlay) {
+    tncOverlay.addEventListener('click', function(e) {
+      if (e.target === this) closeTnC();
+    });
+  }
+});
 
 // Init
 syncTDS('slider');
