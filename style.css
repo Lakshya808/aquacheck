@@ -715,6 +715,73 @@
   }
   .fade-in { animation: fadeUp 0.6s ease both; }
 
+  /* ── T&C BUTTON STYLES ── */
+  .tnc-footer-btn {
+    background: none; border: 1px solid rgba(255,255,255,0.15);
+    color: var(--muted); font-size: 0.85rem; cursor: pointer;
+    padding: 0.3rem 0.9rem; border-radius: 50px;
+    font-family: var(--font-body); transition: all 0.2s;
+  }
+  .tnc-footer-btn:hover { color: var(--teal); border-color: var(--teal); }
+
+  .tnc-inline-link {
+    background: none; border: none; padding: 0;
+    color: var(--teal); font-size: inherit;
+    cursor: pointer; font-family: var(--font-body);
+    text-decoration: underline; text-underline-offset: 2px;
+    transition: opacity 0.2s;
+  }
+  .tnc-inline-link:hover { opacity: 0.75; }
+
+  /* ── T&C MODAL OVERRIDES ── */
+  .tnc-modal { max-width: 700px; }
+  .tnc-header { background: #0a0f1a !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+  .tnc-title { font-size: 0.82rem !important; font-weight: 600; color: rgba(255,255,255,0.45) !important; letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-body) !important; }
+
+  .tnc-body {
+    padding: 1rem 1.3rem 1.4rem;
+    background: #070d18;
+    max-height: 78vh;
+    overflow-y: auto;
+  }
+  .tnc-meta {
+    font-size: 0.68rem; color: rgba(255,255,255,0.28);
+    line-height: 1.5; margin-bottom: 0.85rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .tnc-intro {
+    font-size: 0.72rem; color: rgba(255,255,255,0.38);
+    line-height: 1.6; margin-bottom: 0.9rem;
+    letter-spacing: 0.01em;
+  }
+  .tnc-block {
+    font-size: 0.72rem; color: rgba(255,255,255,0.35);
+    line-height: 1.65; margin-bottom: 0.6rem;
+    text-align: justify;
+  }
+  .tnc-num {
+    font-weight: 700; color: rgba(255,255,255,0.4);
+    margin-right: 3px;
+  }
+  .tnc-h {
+    font-weight: 600; color: rgba(255,255,255,0.42);
+    margin-right: 4px;
+  }
+  .tnc-mail {
+    color: rgba(255,255,255,0.4);
+    text-decoration: underline;
+    font-size: 0.72rem;
+  }
+  .tnc-mail:hover { color: rgba(255,255,255,0.6); }
+  .tnc-footer-note {
+    font-size: 0.68rem; color: rgba(255,255,255,0.25);
+    line-height: 1.6; margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: justify;
+  }
+
   /* ══════════════════════════════════════════
      MOBILE — full responsive overrides
      ══════════════════════════════════════════ */
