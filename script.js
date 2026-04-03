@@ -774,7 +774,9 @@ function toggleHmMore(){
 }
 
 
-const GOOGLE_SHEET_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbymxdekgwcwXp4Xuw5FiThmg_0AkYEeg7HP7ftkS6pXagYSsFqfZKZ8L4tSYpwzNj4/exec';
+
+
 
 async function submitData(){
   const tds = parseInt(document.getElementById('tdsNum').value)||0;
